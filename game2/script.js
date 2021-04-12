@@ -51,15 +51,7 @@ img_monster.src = "crocodili.jpg";
 var img_bullet = new Image();
 img_bullet.src = "bullet2.jpeg";
 
-document.addEventListener('mousedown', function(event) {
-	if(event.which == 1)keys[40] = true;
-	if(event.which == 3)keys[39] = true;
-});
-document.addEventListener('mouseup', function(event) {
-	if(event.which == 1)keys[40] = false;
-	if(event.which == 3)keys[39] = false;
 
-});
 
 document.addEventListener('keyup', function(event) {
   keys[event.keyCode]=false;
