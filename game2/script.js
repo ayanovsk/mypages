@@ -53,7 +53,7 @@ img_bullet.src = "bullet2.jpeg";
 
 
 
-document.addEventListener('keyup', function(event) {
+document.addEventListener('keypress', function(event) {
   keys[event.keyCode]=false;
 });
 
