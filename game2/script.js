@@ -53,9 +53,9 @@ img_bullet.src = "bullet2.jpeg";
 
 
 
-document.addEventListener('keypress', function(event) {
-  keys[event.keyCode]=false;
-});
+//document.addEventListener('keyup', function(event) {
+//  keys[event.keyCode]=false;
+//});
 
 document.addEventListener('keydown', function(event) {
   keys[event.keyCode]=true;
@@ -76,12 +76,15 @@ function setDirection()
     {
       xRsp = 25;
     }
+    keys[40]=false;
+    keys[71]=false;
   }
 
-  if ((keys[32] || keys[84])&& gravity === 0) {y -= 120;}
-if ((keys[37] || keys[70]) && x >= 0) {xsp = -5; facing = "left"; img_player.src = "image.jpg";}
-else if ((keys[39] || keys[72]) && x+w <= canvas.width) {xsp = 5; facing = "right"; img_player.src = "tank.jpg"}
-else {xsp = 0; ysp = 0;}
+  if ((keys[32] || keys[84])&& gravity === 0) {y -= 120; keys[32]=false; keys[84]=false;}
+if ((keys[37] || keys[70]) && x >= 0) {xsp = -5; facing = "left"; img_player.src = "image.jpg"; keys[37]=false; keys[70]=false;}
+else if ((keys[39] || keys[72]) && x+w <= canvas.width) {xsp = 5; facing = "right"; img_player.src = "tank.jpg"; keys[39]=false; keys[72]=false;}
+else {xsp = 0; ysp = 0; keys[39]=false; keys[72]=false;}
+
 }
 
 function lava()
@@ -188,6 +191,7 @@ function animate()
   gameWin();
   }
   bullet();
+
 }
 
 animate();
